@@ -141,3 +141,4 @@ Este proyecto se ejecuta por consola, y para probar las peticiones se hacen a tr
 - https://www.paradigmadigital.com/dev/grpc-que-es-como-funciona/
 
 #### versión README.md -> 1.0 (2023-agosto)
+
