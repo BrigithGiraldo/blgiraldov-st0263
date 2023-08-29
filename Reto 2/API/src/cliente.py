@@ -2,12 +2,13 @@ import grpc
 import files_pb2
 import files_pb2_grpc
 import os 
+import os
+from dotenv import load_dotenv
 
-SERVER_ADDRESS = os.getenv("HOST_GRPC")
-SERVER_PORT = os.getenv("PORT_GRPC")
+load_dotenv()
 
 def list_files():
-    with grpc.insecure_channel(f'{SERVER_ADDRESS}:{SERVER_PORT}') as channel:
+    with grpc.insecure_channel(f'{os.getenv("HOST_GRPC")}:{os.getenv("PORT_GRPC")}') as channel:
         for file in files_pb2_grpc.FilesStub(channel).GetFilesList(files_pb2.ListFilesRequest()).files:
             print(file.filename)
 
