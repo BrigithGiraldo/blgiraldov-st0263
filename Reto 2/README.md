@@ -8,7 +8,7 @@
 # Microservicios gRPC y MOM (Reto 2)
 #
 # 1. breve descripción de la actividad
-##Para este reto, se implementaron 2 microservicios:
+Para este reto, se implementaron 2 microservicios:
 
 - **Microservicio 1:** Encargado de listar archivos a través de gRPC. 
 - **Microservicio 2:** Encargado de buscar archivos mediante una query a través de MOM (RabbitMQ). 
