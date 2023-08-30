@@ -96,14 +96,17 @@ Todo el proyecto fue implementado con Python 3.11.4
 
     python app.py
 
-4. Por último se accede a la dirección http://127.0.0.1:5000/archivos
+4. Lo siguiente es hacer la petición: http://127.0.0.1:5000/archivos
 
 Así el cliente puede observar la lista de archivos.
 
-5. Cabe resaltar que no se pondrán las instrucciones de uso de la dirección http://127.0.0.1:5000/buscar-archivos, ya que esta no funciona correctamente.
+5. Por último se hace la otra petición: http://127.0.0.1:5000/buscar-archivo?query=prueba1.txt
+
+Y así el cliente obtiene la respuesta de haber encontrado el archivo o no.
+
 ## detalles del desarrollo.
 
-En una primera etapa, se puso en marcha el primer microservicio que habilita la consulta de archivos mediante la utilización de gRPC para la comunicación. Después de lograr el funcionamiento efectivo de este microservicio, se avanzó a la integración de Flask como API Gateway. En la fase final, se implementó el segundo microservicio, que permite la búsqueda de archivos a través de una consulta específica y se conecta mediante el uso de MOM, en particular con RabbitMQ, el cual como se menciona anteriormente presenta conflictos de conexión.
+En una primera etapa, se puso en marcha el primer microservicio que habilita la consulta de archivos y búsqueda especifica mediante la utilización de gRPC para la comunicación. Después de lograr el funcionamiento efectivo de este microservicio, se avanzó a la integración de Flask como API Gateway. En la fase final, se implementó el segundo microservicio, que permite la búsqueda de archivos en caso de falla del primer microservicio a través de una consulta específica y se conecta mediante el uso de MOM, en particular con RabbitMQ, el cual como se menciona anteriormente presenta conflictos de conexión.
 
 - El proyecto se construyó utilizando el lenguaje de programación Python.
 
