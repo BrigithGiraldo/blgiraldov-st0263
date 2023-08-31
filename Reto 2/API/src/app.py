@@ -13,9 +13,9 @@ load_dotenv()
 app = Flask(__name__)
 
 host_rmq = os.getenv("HOST_RMQ")
-rmq_port = os.getenv('PORT_RMQ')
-rmq_user = os.getenv('USER')
-rmq_password = os.getenv('PASSWORD')
+rmq_port = os.getenv("PORT_RMQ")
+rmq_user = os.getenv("USER")
+rmq_password = os.getenv("PASSWORD")
 
 @app.route('/buscar-archivo')
 def search_files():
