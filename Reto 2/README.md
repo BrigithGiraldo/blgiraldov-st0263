@@ -143,5 +143,8 @@ Este proyecto se ejecuta por consola, y para probar las peticiones se hacen a tr
 - https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/flask/
 - https://www.paradigmadigital.com/dev/grpc-que-es-como-funciona/
 
+# Link video de sustentación: 
+https://eafit-my.sharepoint.com/:v:/g/personal/blgiraldov_eafit_edu_co/EewWudbolphDnn8wpRb2NMMB_7JYsHmrFcgvEtegf0lg7g?e=Nndtih&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZyIsInJlZmVycmFsQXBwUGxhdGZvcm0iOiJXZWIiLCJyZWZlcnJhbE1vZGUiOiJ2aWV3In19
+
 #### versión README.md -> 1.0 (2023-agosto)
 
