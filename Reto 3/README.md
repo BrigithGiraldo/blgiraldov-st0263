@@ -1,8 +1,8 @@
 # ST02363 Tópicos Especiales en Telemática
 
 # Estudiantes: Brigith Lorena Giraldo Vargas, blgiraldov@eafit.edu.co
-#katherine Benjumea Ortiz, kbenjumeao@eafit.edu.co
-#Valentina Ochoa Arboleda, vochoaa@eafit.edu.co
+# katherine Benjumea Ortiz, kbenjumeao@eafit.edu.co
+# Valentina Ochoa Arboleda, vochoaa@eafit.edu.co
 
 # Profesor: Edwin Nelson Montoya Munera, emontoya@eafit.edu.co
 
