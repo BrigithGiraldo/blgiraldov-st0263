@@ -176,6 +176,10 @@ El proyecto se realizo en 5 máquinas virtuales:
 3. Se navega por el Drupal. En caso de que no cargue, se verifica en cada máquina virtual, menos la del nfs server, que los contenedores esten arriba.
 
 ## opcionalmente - si quiere mostrar resultados o pantallazos 
+![image](https://github.com/BrigithGiraldo/blgiraldov-st0263/assets/71681098/38a5aefd-5711-498c-8da1-82a729f8cef5)
+![image](https://github.com/BrigithGiraldo/blgiraldov-st0263/assets/71681098/c8c06bb6-d6ff-421a-a48e-fdccccb08965)
+![image](https://github.com/BrigithGiraldo/blgiraldov-st0263/assets/71681098/c3d84be7-ac48-49c4-86ae-144a96d0a1a0)
+
 
 # 5. otra información que considere relevante para esta actividad.
 
