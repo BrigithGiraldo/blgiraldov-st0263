@@ -12,7 +12,7 @@ app = Flask(__name__)
 file_storage = {}
 
 # Dirección del servidor del NameNode (gRPC)
-name_node_grpc_address = "localhost:50051"
+name_node_grpc_address = "172.31.88.26:50051"
 
 # Generar un data_node_id único aleatorio
 data_node_id = str(uuid.uuid4())

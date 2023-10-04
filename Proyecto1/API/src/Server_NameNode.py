@@ -191,4 +191,4 @@ if __name__ == '__main__':
     server.start()
 
     # Inicia el servidor API REST del NameNode
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='172.31.88.26', port=8080)

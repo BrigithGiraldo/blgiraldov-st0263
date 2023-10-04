@@ -10,7 +10,7 @@ import os
 app = Flask(__name__)
 
 # URL del servidor del NameNode (REST)
-name_node_rest_url = "http://localhost:8080"
+name_node_rest_url = "http://172.31.88.26:8080"
 
 def get_file_data_from_user():
     # Solicitar al usuario que ingrese los datos para el archivo
