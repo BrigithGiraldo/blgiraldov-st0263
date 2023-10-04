@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package file;
+
+message RegisterDataNodeRequest {
+  string data_node_id = 1;
+  string data_node_address = 2;
+}
+
+message RegisterDataNodeResponse {
+  string message = 1;
+}
+
+message GetFileLocationRequest {
+  string file_name = 1;
+}
+
+message GetFileLocationResponse {
+  bool success = 1;
+  string data_node_address = 2;
+  string message = 3;
+}
+
+message FileData {
+  string file_name = 1;
+  bytes file_data = 2;
+}
+
+message StoreFileResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message ReadFileRequest {
+  string file_name = 1;
+}
+
+message ReadFileResponse {
+  bool success = 1;
+  bytes file_data = 2;
+  string message = 3;
+}
+
+message InformFileLocationRequest {
+  string file_name = 1;
+  string data_node_id = 2;
+}
+
+message InformFileLocationResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message GetLeaderAndFollowerRequest {
+  string file_name = 1;
+}
+
+message GetLeaderAndFollowerResponse {
+  bool success = 1;
+  string leader_id = 2;
+  string follower_id = 3;
+}
+
+service NameNode {
+  rpc RegisterDataNode(RegisterDataNodeRequest) returns (RegisterDataNodeResponse);
+  rpc GetFileLocation(GetFileLocationRequest) returns (GetFileLocationResponse);
+  rpc WriteFile(FileData) returns (GetFileLocationResponse);
+  rpc ReadFile(ReadFileRequest) returns (ReadFileResponse);
+  rpc InformFileLocation(InformFileLocationRequest) returns (InformFileLocationResponse);
+  rpc GetLeaderAndFollower(GetLeaderAndFollowerRequest) returns (GetLeaderAndFollowerResponse);
+}
+
+service DataNode {
+  rpc StoreFile(FileData) returns (StoreFileResponse);
+  rpc ReadFile(ReadFileRequest) returns (ReadFileResponse);
+}
+
