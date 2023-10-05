@@ -104,7 +104,7 @@ if __name__ == '__main__':
     random_port = random.randint(50000, 60000)
 
     # Configurar la dirección y el puerto en el que se ejecutará el DataNode
-    app.config["data_node_address"] = f"localhost:80"
+    app.config["data_node_address"] = f"localhost:8080"
 
     # Registrar la dirección del DataNode
     data_nodes[data_node_id] = app.config["data_node_address"]
@@ -120,4 +120,4 @@ if __name__ == '__main__':
     server.start()
 
     # Iniciar el servidor API REST del DataNode (si es necesario)
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=8080)

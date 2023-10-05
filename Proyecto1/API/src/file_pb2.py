@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nfile.proto\x12\x04\x66ile\"J\n\x17RegisterDataNodeRequest\x12\x14\n\x0c\x64\x61ta_node_id\x18\x01 \x01(\t\x12\x19\n\x11\x64\x61ta_node_address\x18\x02 \x01(\t\"+\n\x18RegisterDataNodeResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"+\n\x16GetFileLocationRequest\x12\x11\n\tfile_name\x18\x01 \x01(\t\"V\n\x17GetFileLocationResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x19\n\x11\x64\x61ta_node_address\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\"0\n\x08\x46ileData\x12\x11\n\tfile_name\x18\x01 \x01(\t\x12\x11\n\tfile_data\x18\x02 \x01(\x0c\"5\n\x11StoreFileResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\"$\n\x0fReadFileRequest\x12\x11\n\tfile_name\x18\x01 \x01(\t\"G\n\x10ReadFileResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x11\n\tfile_data\x18\x02 \x01(\x0c\x12\x0f\n\x07message\x18\x03 \x01(\t\"D\n\x19InformFileLocationRequest\x12\x11\n\tfile_name\x18\x01 \x01(\t\x12\x14\n\x0c\x64\x61ta_node_id\x18\x02 \x01(\t\">\n\x1aInformFileLocationResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\"0\n\x1bGetLeaderAndFollowerRequest\x12\x11\n\tfile_name\x18\x01 \x01(\t\"W\n\x1cGetLeaderAndFollowerResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x11\n\tleader_id\x18\x02 \x01(\t\x12\x13\n\x0b\x66ollower_id\x18\x03 \x01(\t2\xdc\x03\n\x08NameNode\x12Q\n\x10RegisterDataNode\x12\x1d.file.RegisterDataNodeRequest\x1a\x1e.file.RegisterDataNodeResponse\x12N\n\x0fGetFileLocation\x12\x1c.file.GetFileLocationRequest\x1a\x1d.file.GetFileLocationResponse\x12:\n\tWriteFile\x12\x0e.file.FileData\x1a\x1d.file.GetFileLocationResponse\x12\x39\n\x08ReadFile\x12\x15.file.ReadFileRequest\x1a\x16.file.ReadFileResponse\x12W\n\x12InformFileLocation\x12\x1f.file.InformFileLocationRequest\x1a .file.InformFileLocationResponse\x12]\n\x14GetLeaderAndFollower\x12!.file.GetLeaderAndFollowerRequest\x1a\".file.GetLeaderAndFollowerResponse2{\n\x08\x44\x61taNode\x12\x34\n\tStoreFile\x12\x0e.file.FileData\x1a\x17.file.StoreFileResponse\x12\x39\n\x08ReadFile\x12\x15.file.ReadFileRequest\x1a\x16.file.ReadFileResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nfile.proto\x12\x04\x66ile\"J\n\x17RegisterDataNodeRequest\x12\x14\n\x0c\x64\x61ta_node_id\x18\x01 \x01(\t\x12\x19\n\x11\x64\x61ta_node_address\x18\x02 \x01(\t\"+\n\x18RegisterDataNodeResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"+\n\x16GetFileLocationRequest\x12\x11\n\tfile_name\x18\x01 \x01(\t\"V\n\x17GetFileLocationResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x19\n\x11\x64\x61ta_node_address\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\"0\n\x08\x46ileData\x12\x11\n\tfile_name\x18\x01 \x01(\t\x12\x11\n\tfile_data\x18\x02 \x01(\x0c\"5\n\x11StoreFileResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\"$\n\x0fReadFileRequest\x12\x11\n\tfile_name\x18\x01 \x01(\t\"G\n\x10ReadFileResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x11\n\tfile_data\x18\x02 \x01(\x0c\x12\x0f\n\x07message\x18\x03 \x01(\t\"D\n\x19InformFileLocationRequest\x12\x11\n\tfile_name\x18\x01 \x01(\t\x12\x14\n\x0c\x64\x61ta_node_id\x18\x02 \x01(\t\">\n\x1aInformFileLocationResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t2\xfd\x02\n\x08NameNode\x12Q\n\x10RegisterDataNode\x12\x1d.file.RegisterDataNodeRequest\x1a\x1e.file.RegisterDataNodeResponse\x12N\n\x0fGetFileLocation\x12\x1c.file.GetFileLocationRequest\x1a\x1d.file.GetFileLocationResponse\x12:\n\tWriteFile\x12\x0e.file.FileData\x1a\x1d.file.GetFileLocationResponse\x12\x39\n\x08ReadFile\x12\x15.file.ReadFileRequest\x1a\x16.file.ReadFileResponse\x12W\n\x12InformFileLocation\x12\x1f.file.InformFileLocationRequest\x1a .file.InformFileLocationResponse2{\n\x08\x44\x61taNode\x12\x34\n\tStoreFile\x12\x0e.file.FileData\x1a\x17.file.StoreFileResponse\x12\x39\n\x08ReadFile\x12\x15.file.ReadFileRequest\x1a\x16.file.ReadFileResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -41,12 +41,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_INFORMFILELOCATIONREQUEST']._serialized_end=558
   _globals['_INFORMFILELOCATIONRESPONSE']._serialized_start=560
   _globals['_INFORMFILELOCATIONRESPONSE']._serialized_end=622
-  _globals['_GETLEADERANDFOLLOWERREQUEST']._serialized_start=624
-  _globals['_GETLEADERANDFOLLOWERREQUEST']._serialized_end=672
-  _globals['_GETLEADERANDFOLLOWERRESPONSE']._serialized_start=674
-  _globals['_GETLEADERANDFOLLOWERRESPONSE']._serialized_end=761
-  _globals['_NAMENODE']._serialized_start=764
-  _globals['_NAMENODE']._serialized_end=1240
-  _globals['_DATANODE']._serialized_start=1242
-  _globals['_DATANODE']._serialized_end=1365
+  _globals['_NAMENODE']._serialized_start=625
+  _globals['_NAMENODE']._serialized_end=1006
+  _globals['_DATANODE']._serialized_start=1008
+  _globals['_DATANODE']._serialized_end=1131
 # @@protoc_insertion_point(module_scope)

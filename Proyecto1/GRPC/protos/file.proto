@@ -51,23 +51,12 @@ message InformFileLocationResponse {
   string message = 2;
 }
 
-message GetLeaderAndFollowerRequest {
-  string file_name = 1;
-}
-
-message GetLeaderAndFollowerResponse {
-  bool success = 1;
-  string leader_id = 2;
-  string follower_id = 3;
-}
-
 service NameNode {
   rpc RegisterDataNode(RegisterDataNodeRequest) returns (RegisterDataNodeResponse);
   rpc GetFileLocation(GetFileLocationRequest) returns (GetFileLocationResponse);
   rpc WriteFile(FileData) returns (GetFileLocationResponse);
   rpc ReadFile(ReadFileRequest) returns (ReadFileResponse);
   rpc InformFileLocation(InformFileLocationRequest) returns (InformFileLocationResponse);
-  rpc GetLeaderAndFollower(GetLeaderAndFollowerRequest) returns (GetLeaderAndFollowerResponse);
 }
 
 service DataNode {

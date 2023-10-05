@@ -39,11 +39,6 @@ class NameNodeStub(object):
                 request_serializer=file__pb2.InformFileLocationRequest.SerializeToString,
                 response_deserializer=file__pb2.InformFileLocationResponse.FromString,
                 )
-        self.GetLeaderAndFollower = channel.unary_unary(
-                '/file.NameNode/GetLeaderAndFollower',
-                request_serializer=file__pb2.GetLeaderAndFollowerRequest.SerializeToString,
-                response_deserializer=file__pb2.GetLeaderAndFollowerResponse.FromString,
-                )
 
 
 class NameNodeServicer(object):
@@ -79,12 +74,6 @@ class NameNodeServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetLeaderAndFollower(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_NameNodeServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -112,11 +101,6 @@ def add_NameNodeServicer_to_server(servicer, server):
                     servicer.InformFileLocation,
                     request_deserializer=file__pb2.InformFileLocationRequest.FromString,
                     response_serializer=file__pb2.InformFileLocationResponse.SerializeToString,
-            ),
-            'GetLeaderAndFollower': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetLeaderAndFollower,
-                    request_deserializer=file__pb2.GetLeaderAndFollowerRequest.FromString,
-                    response_serializer=file__pb2.GetLeaderAndFollowerResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -210,23 +194,6 @@ class NameNode(object):
         return grpc.experimental.unary_unary(request, target, '/file.NameNode/InformFileLocation',
             file__pb2.InformFileLocationRequest.SerializeToString,
             file__pb2.InformFileLocationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetLeaderAndFollower(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/file.NameNode/GetLeaderAndFollower',
-            file__pb2.GetLeaderAndFollowerRequest.SerializeToString,
-            file__pb2.GetLeaderAndFollowerResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
