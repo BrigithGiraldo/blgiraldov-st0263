@@ -6,14 +6,11 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# Dirección del NameNode principal (leader)
 leader_address = "localhost:50051"
 
-# Definición del servicio NameNodeFollower
 class NameNodeFollowerServicer(file_pb2_grpc.NameNodeServicer):
     def GetFileLocation(self, request, context):
         try:
-            # Reenviar la solicitud al NameNode principal para obtener la ubicación del archivo
             channel = grpc.insecure_channel(leader_address)
             stub = file_pb2_grpc.NameNodeStub(channel)
             response = stub.GetFileLocation(request)
@@ -25,10 +22,8 @@ class NameNodeFollowerServicer(file_pb2_grpc.NameNodeServicer):
                 message=str(e)
             )
 
-# Función para comunicarse con el NameNode principal para escrituras
 def communicate_with_leader(request):
     try:
-        # Reenviar la solicitud al NameNode principal para escribir el archivo
         channel = grpc.insecure_channel(leader_address)
         stub = file_pb2_grpc.NameNodeStub(channel)
         response = stub.RegisterDataNode(request)
@@ -46,10 +41,9 @@ def write_file():
         file_name = data['file_name']
         file_data = data['file_data'].encode('utf-8')
         
-        # Reenviar la solicitud al NameNode principal para escribir el archivo
         request = file_pb2.RegisterDataNodeRequest(
-            data_node_id="follower",  # Un identificador para el NameNodeFollower
-            data_node_address="follower",  # Una dirección ficticia para el NameNodeFollower
+            data_node_id="follower", 
+            data_node_address="follower",
         )
         response = communicate_with_leader(request)
 
@@ -64,7 +58,6 @@ def write_file():
 @app.route('/read/<file_name>', methods=['GET'])
 def read_file(file_name):
     try:
-        # Reenviar la solicitud al NameNode principal para obtener la ubicación del archivo
         request = file_pb2.GetFileLocationRequest(file_name=file_name)
         channel = grpc.insecure_channel(leader_address)
         stub = file_pb2_grpc.NameNodeStub(channel)
@@ -91,11 +84,9 @@ def list_files():
         return jsonify({"error": str(e)}), 500
     
 if __name__ == '__main__':
-    # Configura el servidor gRPC del NameNodeFollower
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     file_pb2_grpc.add_NameNodeServicer_to_server(NameNodeFollowerServicer(), server)
     server.add_insecure_port('[::]:50052') 
     server.start()
 
-    # Inicia el servidor API REST del NameNodeFollower
     app.run(host='0.0.0.0', port=8081)  

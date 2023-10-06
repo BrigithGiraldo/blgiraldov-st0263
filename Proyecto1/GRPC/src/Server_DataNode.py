@@ -8,17 +8,14 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# Almacena los archivos en el DataNode
 file_storage = {}
 
 # Dirección del servidor del NameNode (gRPC)
 name_node_grpc_address = "172.31.88.26:50051"
 
-# Generar un data_node_id único aleatorio
 data_node_id = str(uuid.uuid4())
 
-# Definir un diccionario para mantener la información de los DataNodes
-data_nodes = {}  # {data_node_id: data_node_address}
+data_nodes = {}  
 
 
 def register_with_namenode():
@@ -51,7 +48,6 @@ def communicate_with_datanode(data_node_id, file_name, file_data):
     try:
         if data_node_id in data_nodes:
             data_node_address = data_nodes[data_node_id]
-            # Comunicación con el DataNode a través de gRPC
             channel = grpc.insecure_channel(data_node_address)
             stub = file_pb2_grpc.DataNodeStub(channel)
             response = stub.StoreFile(file_pb2.FileData(file_name=file_name, file_data=file_data))
@@ -67,10 +63,8 @@ class DataNodeServicer(file_pb2_grpc.DataNodeServicer):
         file_name = request.file_name
         file_data = request.file_data
 
-        # Almacena el archivo en el DataNode
         file_storage[file_name] = file_data
 
-        # Informa la ubicación del archivo al NameNode
         inform_message = inform_file_location_to_namenode(file_name)
         print(inform_message)
 
@@ -91,33 +85,24 @@ class DataNodeServicer(file_pb2_grpc.DataNodeServicer):
         file_data = request.file_data
         print(file_data)
 
-        # Verificar si el archivo existe en el DataNode
         if file_name in file_storage:
-            # Actualizar el contenido del archivo
             file_storage[file_name] = file_data
             return file_pb2.StoreFileResponse(success=True, message="Archivo actualizado con éxito")
         else:
             return file_pb2.StoreFileResponse(success=False, message="Archivo no encontrado")
 
 if __name__ == '__main__':
-    # Generar un número de puerto aleatorio entre 50000 y 60000 (o cualquier rango deseado)
-    random_port = random.randint(50000, 60000)
 
-    # Configurar la dirección y el puerto en el que se ejecutará el DataNode
     app.config["data_node_address"] = f"localhost:8080"
 
-    # Registrar la dirección del DataNode
     data_nodes[data_node_id] = app.config["data_node_address"]
 
-    # Registrarse en el NameNode al iniciar
     register_message = register_with_namenode()
     print(register_message)
 
-    # Configurar el servidor gRPC del DataNode
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     file_pb2_grpc.add_DataNodeServicer_to_server(DataNodeServicer(), server)
     server.add_insecure_port(app.config["data_node_address"])
     server.start()
 
-    # Iniciar el servidor API REST del DataNode (si es necesario)
     app.run(host='0.0.0.0', port=8080)
