@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-ha
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+        - name: wordpress-ha
+          image: wordpress:latest
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: "mysql-ha"
+            - name: WORDPRESS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret-ha
+                  key: MYSQL_ROOT_PASSWORD
+          ports:
+            - containerPort: 8001
+          volumeMounts:
+            - name: wordpress-persistent-storage-ha
+              mountPath: /var/www/html
+  volumeClaimTemplates:
+    - metadata:
+        name: wordpress-persistent-storage-ha
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 10Gi
