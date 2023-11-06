@@ -101,15 +101,7 @@ Se debe de realizar en el mismo orden.
 
 ## descripción y como se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
 
-
 - Para la base de datos, se utiliza el puerto de Mysql 3306.
-
-# 4. Descripción del ambiente de EJECUCIÓN (en producción) lenguaje de programación, librerias, paquetes, etc, con sus numeros de versiones.
-
-4. 
-## opcionalmente - si quiere mostrar resultados o pantallazos
-
-# 5. otra información que considere relevante para esta actividad.
 
 # referencias:
 
