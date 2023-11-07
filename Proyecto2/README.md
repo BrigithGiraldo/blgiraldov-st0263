@@ -17,13 +17,14 @@ Tambien se debe de utilizar un servicio de base de datos administrado externo al
 
 ## 1.1. Que aspectos cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
 
-URL video:
+URL video: https://clipchamp.com/watch/Pu4tt05Ya8N
 
 Se logró implementar la segunda opción utilizando el servicio de base de datos administrado externo al clúster "Cloud SQL".
 
 ## 1.2. Que aspectos NO cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
 
-URL video:
+URL video: https://clipchamp.com/watch/Hd5opRZ5u9B
+
 No se pudo implementar el servicio de base de datos en HA.
 
 1. Se crearon los manifiestos que eran necesarios para el despliegue.
